@@ -1,0 +1,92 @@
+<resources>
+    <string name="app_name">InvestTrack</string>
+    <string name="tagline">Smart Portfolio &amp; Maturity Tracker</string>
+    
+    <!-- Tabs & Modes -->
+    <string name="tab_portfolio">Portfolio</string>
+    <string name="tab_yearly_report">Yearly Report</string>
+    <string name="view_mode_list">List View</string>
+    <string name="view_mode_grid">Grid View</string>
+    <string name="desc_view_mode">Toggle List / Grid View</string>
+    <string name="desc_template">Download Sample Template</string>
+    <string name="desc_import">Import Excel / CSV</string>
+    <string name="desc_excel">Export to Excel</string>
+    <string name="desc_pdf">Export to PDF</string>
+    
+    <!-- Search & Filters -->
+    <string name="search_hint">Search name, category, notes, folio...</string>
+    <string name="filter_all">All</string>
+    <string name="filter_overdue">⚠️ Overdue</string>
+    <string name="filter_soon">⏳ Maturing Soon</string>
+    <string name="filter_maturing_soon">⏳ Maturing Soon</string>
+    <string name="filter_active">🟢 Active</string>
+    <string name="filter_closed">✓ Closed</string>
+    
+    <!-- Actions -->
+    <string name="btn_add_investment">Add Investment</string>
+    <string name="btn_export_pdf">PDF</string>
+    <string name="btn_export_excel">Excel</string>
+    <string name="btn_import_excel">Import</string>
+    <string name="btn_sample_template">Sample Template</string>
+    <string name="btn_save">Save Investment</string>
+    <string name="btn_update">Update Investment</string>
+    <string name="btn_cancel">Cancel</string>
+    <string name="btn_delete">Delete</string>
+    
+    <!-- Dialog Titles -->
+    <string name="dialog_add_title">New Investment</string>
+    <string name="dialog_edit_title">Edit Investment</string>
+    <string name="dialog_import_title">Import Investments (Excel/CSV)</string>
+    <string name="dialog_delete_title">Delete Investment</string>
+    <string name="dialog_delete_confirm">Are you sure you want to delete \'%s\'?</string>
+    
+    <!-- Fields -->
+    <string name="label_name">Investment Name</string>
+    <string name="label_category">Category / Type</string>
+    <string name="label_invested_amount">Investment Amount ($)</string>
+    <string name="label_investment_date">Investment Date</string>
+    <string name="label_maturity_amount">Maturity Amount ($)</string>
+    <string name="label_maturity_date">Maturity Date</string>
+    <string name="label_details">Investment Details / Notes</string>
+    <string name="label_status">Status</string>
+    
+    <!-- Hints -->
+    <string name="hint_name">e.g. HDFC 5-Yr Fixed Deposit, Apple Stock</string>
+    <string name="hint_amount">0.00</string>
+    <string name="hint_details">e.g. Folio #12345, 7.5% p.a., Auto-renewal</string>
+    
+    <!-- Status Badges -->
+    <string name="status_overdue_badge">OVERDUE</string>
+    <string name="status_soon_badge">MATURING SOON</string>
+    <string name="status_active_badge">ACTIVE</string>
+    <string name="status_closed_badge">CLOSED</string>
+    
+    <!-- Empty State -->
+    <string name="empty_title">No Investments Found</string>
+    <string name="empty_subtitle">Tap + below or Import Excel/CSV to add investments</string>
+    
+    <!-- Yearly Report -->
+    <string name="report_total_invested">Total Invested in Year</string>
+    <string name="report_maturing_in_year">Maturing in Year</string>
+    <string name="report_net_gain">Annual Net Gain</string>
+    <string name="report_month_breakdown">Month-by-Month Breakdown</string>
+    
+    <!-- Summaries -->
+    <string name="total_invested">Total Invested</string>
+    <string name="total_maturity">Maturity Value</string>
+    <string name="net_gain">Net Gain</string>
+    <string name="roi_label">Expected ROI</string>
+    <string name="overdue_count">Overdue</string>
+    <string name="active_count">Active</string>
+    
+    <!-- Messages & Toasts -->
+    <string name="msg_saved">Investment saved successfully</string>
+    <string name="msg_updated">Investment updated successfully</string>
+    <string name="msg_deleted">Investment removed</string>
+    <string name="msg_import_success">Imported %d investments successfully</string>
+    <string name="msg_import_failed">Failed to import file: %s</string>
+    <string name="msg_export_pdf_success">PDF generated: %s</string>
+    <string name="msg_export_excel_success">Excel CSV generated: %s</string>
+    <string name="msg_no_data">No investments found</string>
+    <string name="msg_no_data_sub">Tap + below or Import Excel to add your first investment</string>
+</resources>

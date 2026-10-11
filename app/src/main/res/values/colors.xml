@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary">#10B981</color>
+    <color name="primary_dark">#059669</color>
+    <color name="primary_light">#34D399</color>
+    <color name="primary_tint">#1A10B981</color>
+    
+    <color name="background">#0B0F19</color>
+    <color name="surface">#131C2E</color>
+    <color name="surface_variant">#1E293B</color>
+    <color name="surface_border">#2A3850</color>
+    
+    <color name="text_primary">#F8FAFC</color>
+    <color name="text_secondary">#94A3B8</color>
+    <color name="text_muted">#64748B</color>
+    <color name="white">#FFFFFF</color>
+    
+    <!-- Status / Notification Alert Colors -->
+    <color name="status_overdue">#EF4444</color>
+    <color name="status_overdue_bg">#2E151A</color>
+    <color name="status_overdue_border">#DC2626</color>
+    
+    <color name="status_warning">#F59E0B</color>
+    <color name="status_warning_bg">#2C1F10</color>
+    <color name="status_warning_border">#D97706</color>
+    
+    <color name="status_active">#3B82F6</color>
+    <color name="status_active_bg">#13243F</color>
+    
+    <color name="status_closed">#8B5CF6</color>
+    <color name="status_closed_bg">#201736</color>
+    
+    <!-- Category Pill Colors -->
+    <color name="cat_fd">#F59E0B</color>
+    <color name="cat_mf">#3B82F6</color>
+    <color name="cat_stocks">#10B981</color>
+    <color name="cat_bonds">#8B5CF6</color>
+    <color name="cat_gold">#EAB308</color>
+    <color name="cat_realestate">#EC4899</color>
+    <color name="cat_other">#64748B</color>
+</resources>
