@@ -8,6 +8,14 @@
 
 ---
 
+## 📥 Direct APK Download
+
+You can directly download and install the pre-built application APK:
+- 📱 **[Download InvestTrack-v1.0.apk (v1.0)](apk/InvestTrack-v1.0.apk)** *(Size: ~6.04 MB)*
+- **Compatibility**: Android 6.0+ (API 23 to 36) on all Android Mobile Phones & Tablets.
+
+---
+
 ## 🌟 Key Features
 
 ### 1. Complete Investment Details Tracking
