@@ -37,6 +37,7 @@ class MainActivity : AppCompatActivity() {
     private var currentStatusFilter: InvestmentStatus? = null
     private var currentYear = Calendar.getInstance().get(Calendar.YEAR)
     private var isYearlyReportTab = false
+    private var currentSortOption: SortOption = SortOption.MATURITY_DATE_ASC
 
     private val categories = listOf(
         "Fixed Deposit",
@@ -138,6 +139,14 @@ class MainActivity : AppCompatActivity() {
         binding.btnToggleViewMode.setOnClickListener {
             isGridView = !isGridView
             setupResponsiveLayout()
+        }
+
+        binding.btnSort.setOnClickListener {
+            showSortSelectionDialog()
+        }
+
+        binding.chipSort.setOnClickListener {
+            showSortSelectionDialog()
         }
 
         binding.chipAll.setOnClickListener { selectFilter(null) }
@@ -285,10 +294,12 @@ class MainActivity : AppCompatActivity() {
 
         val filteredList = dbHelper.getInvestmentsFiltered(
             query = currentQuery,
-            statusFilter = currentStatusFilter
+            statusFilter = currentStatusFilter,
+            sortOption = currentSortOption
         )
         binding.rvInvestments.adapter = investmentAdapter
         investmentAdapter.submitList(filteredList)
+        binding.chipSort.text = "⇅ ${currentSortOption.shortLabel} ▾"
 
         if (filteredList.isEmpty()) {
             binding.layoutEmpty.visibility = View.VISIBLE
@@ -508,6 +519,27 @@ class MainActivity : AppCompatActivity() {
                 loadData()
             }
             .setNegativeButton("Cancel", null)
+            .show()
+    }
+
+    private fun showSortSelectionDialog() {
+        val options = SortOption.values()
+        val optionTitles = options.map { it.title }.toTypedArray()
+        val currentIndex = options.indexOf(currentSortOption)
+
+        AlertDialog.Builder(this)
+            .setTitle(R.string.dialog_sort_title)
+            .setSingleChoiceItems(optionTitles, currentIndex) { dialog, which ->
+                val selected = options[which]
+                if (selected != currentSortOption) {
+                    currentSortOption = selected
+                    binding.chipSort.text = "⇅ ${currentSortOption.shortLabel} ▾"
+                    Toast.makeText(this, "Sorted by ${selected.shortLabel}", Toast.LENGTH_SHORT).show()
+                    loadData()
+                }
+                dialog.dismiss()
+            }
+            .setNegativeButton(R.string.btn_cancel, null)
             .show()
     }
 

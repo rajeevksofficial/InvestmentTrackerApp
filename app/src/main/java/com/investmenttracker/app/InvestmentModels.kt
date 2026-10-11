@@ -13,6 +13,15 @@ enum class InvestmentStatus {
     CLOSED         // Redeemed / Collected (PURPLE/MUTED)
 }
 
+enum class SortOption(val title: String, val shortLabel: String) {
+    MATURITY_DATE_ASC("Maturity Date (Earliest First)", "Maturity (Earliest)"),
+    MATURITY_DATE_DESC("Maturity Date (Latest First)", "Maturity (Latest)"),
+    INVESTMENT_DATE_DESC("Investment Date (Newest First)", "Invest Date (Newest)"),
+    INVESTMENT_DATE_ASC("Investment Date (Oldest First)", "Invest Date (Oldest)"),
+    AMOUNT_DESC("Investment Amount (Highest First)", "Amount (High)"),
+    NAME_ASC("Investment Name (A to Z)", "Name (A-Z)")
+}
+
 data class Investment(
     val id: Long = 0,
     val name: String,

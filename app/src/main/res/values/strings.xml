@@ -8,6 +8,8 @@
     <string name="view_mode_list">List View</string>
     <string name="view_mode_grid">Grid View</string>
     <string name="desc_view_mode">Toggle List / Grid View</string>
+    <string name="desc_sort">Sort Investments</string>
+    <string name="dialog_sort_title">Sort Investments By</string>
     <string name="desc_template">Download Sample Template</string>
     <string name="desc_import">Import Excel / CSV</string>
     <string name="desc_excel">Export to Excel</string>

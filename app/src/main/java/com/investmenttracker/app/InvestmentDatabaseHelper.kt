@@ -101,7 +101,7 @@ class InvestmentDatabaseHelper(context: Context) :
     fun getInvestmentsFiltered(
         query: String = "",
         statusFilter: InvestmentStatus? = null,
-        sortBy: String = "MATURITY_DATE"
+        sortOption: SortOption = SortOption.MATURITY_DATE_ASC
     ): List<Investment> {
         val all = getAllInvestments()
         val now = System.currentTimeMillis()
@@ -126,11 +126,13 @@ class InvestmentDatabaseHelper(context: Context) :
 
             matchesQuery && matchesStatus
         }.sortedWith { a, b ->
-            when (sortBy) {
-                "AMOUNT_DESC" -> b.investmentAmount.compareTo(a.investmentAmount)
-                "NAME_ASC" -> a.name.compareTo(b.name, ignoreCase = true)
-                "ROI_DESC" -> b.roiPercentage.compareTo(a.roiPercentage)
-                else -> a.maturityDate.compareTo(b.maturityDate)
+            when (sortOption) {
+                SortOption.MATURITY_DATE_ASC -> a.maturityDate.compareTo(b.maturityDate)
+                SortOption.MATURITY_DATE_DESC -> b.maturityDate.compareTo(a.maturityDate)
+                SortOption.INVESTMENT_DATE_DESC -> b.investmentDate.compareTo(a.investmentDate)
+                SortOption.INVESTMENT_DATE_ASC -> a.investmentDate.compareTo(b.investmentDate)
+                SortOption.AMOUNT_DESC -> b.investmentAmount.compareTo(a.investmentAmount)
+                SortOption.NAME_ASC -> a.name.compareTo(b.name, ignoreCase = true)
             }
         }
     }

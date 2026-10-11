@@ -110,4 +110,70 @@ class InvestmentTrackerUnitTest {
         assertEquals(15000.0, item.totalMaturing, 0.01)
         assertEquals(2, item.count)
     }
+
+    @Test
+    fun testSortingByInvestmentDateAndMaturityDate() {
+        val inv1 = Investment(
+            id = 1,
+            name = "Alpha FD",
+            investmentAmount = 1000.0,
+            investmentDate = 1000L,
+            maturityAmount = 1100.0,
+            maturityDate = 5000L
+        )
+        val inv2 = Investment(
+            id = 2,
+            name = "Beta Mutual Fund",
+            investmentAmount = 2000.0,
+            investmentDate = 3000L,
+            maturityAmount = 2500.0,
+            maturityDate = 4000L
+        )
+        val inv3 = Investment(
+            id = 3,
+            name = "Gamma Bonds",
+            investmentAmount = 3000.0,
+            investmentDate = 2000L,
+            maturityAmount = 3500.0,
+            maturityDate = 6000L
+        )
+
+        val list = listOf(inv1, inv2, inv3)
+
+        // Maturity Date ASC: inv2 (4000), inv1 (5000), inv3 (6000)
+        val sortedMaturityAsc = list.sortedWith { a, b ->
+            when (SortOption.MATURITY_DATE_ASC) {
+                SortOption.MATURITY_DATE_ASC -> a.maturityDate.compareTo(b.maturityDate)
+                else -> 0
+            }
+        }
+        assertEquals(listOf(inv2, inv1, inv3), sortedMaturityAsc)
+
+        // Maturity Date DESC: inv3 (6000), inv1 (5000), inv2 (4000)
+        val sortedMaturityDesc = list.sortedWith { a, b ->
+            when (SortOption.MATURITY_DATE_DESC) {
+                SortOption.MATURITY_DATE_DESC -> b.maturityDate.compareTo(a.maturityDate)
+                else -> 0
+            }
+        }
+        assertEquals(listOf(inv3, inv1, inv2), sortedMaturityDesc)
+
+        // Investment Date ASC: inv1 (1000), inv3 (2000), inv2 (3000)
+        val sortedInvestAsc = list.sortedWith { a, b ->
+            when (SortOption.INVESTMENT_DATE_ASC) {
+                SortOption.INVESTMENT_DATE_ASC -> a.investmentDate.compareTo(b.investmentDate)
+                else -> 0
+            }
+        }
+        assertEquals(listOf(inv1, inv3, inv2), sortedInvestAsc)
+
+        // Investment Date DESC: inv2 (3000), inv3 (2000), inv1 (1000)
+        val sortedInvestDesc = list.sortedWith { a, b ->
+            when (SortOption.INVESTMENT_DATE_DESC) {
+                SortOption.INVESTMENT_DATE_DESC -> b.investmentDate.compareTo(a.investmentDate)
+                else -> 0
+            }
+        }
+        assertEquals(listOf(inv2, inv3, inv1), sortedInvestDesc)
+    }
 }
