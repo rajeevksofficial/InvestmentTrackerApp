@@ -11,6 +11,10 @@
 ## 📥 Direct APK Download
 
 You can directly download and install the pre-built application APK:
+- 📱 **[Download InvestTrack-v1.1.apk (v1.1 - Latest)](apk/InvestTrack-v1.1.apk)** *(Size: ~6.02 MB)*
+  - **New**: App login password protection with PBKDF2 HMAC-SHA256 (65,536 iterations).
+  - **New**: In-settings 3-stage verification flow to change login password (identical to SafeVault).
+  - **New**: Instant App Lock feature from Settings.
 - 📱 **[Download InvestTrack-v1.0.apk (v1.0)](apk/InvestTrack-v1.0.apk)** *(Size: ~6.04 MB)*
 - **Compatibility**: Android 6.0+ (API 23 to 36) on all Android Mobile Phones & Tablets.
 
@@ -18,7 +22,22 @@ You can directly download and install the pre-built application APK:
 
 ## 🌟 Key Features
 
-### 1. Complete Investment Details Tracking
+### 1. App Login Password & Biometric-Grade Security
+- **Master PIN Protection**: Protects your financial portfolio on app launch with a secure 4-digit numeric keypad and visual dot indicators.
+- **First Launch PIN Setup**: Guided 2-step setup (`Set Master PIN` ➔ `Confirm Master PIN`) with automatic validation.
+- **Military-Grade Key Derivation**: PBKDF2 with HMAC-SHA256, 65,536 key-stretching iterations, and 16-byte cryptographically secure random salt.
+- **Timing-Attack Resistance**: `slowEquals` constant-time equality check ensures immunity against timing side-channel attacks.
+- **Forgot / Reset PIN Option**: Secure PIN reset confirmation dialog preserving data integrity.
+
+### 2. In-Settings "Change Login Password" (SafeVault Flow)
+- **Top Header Settings Button**: Quick-access settings icon (`ic_settings`) in the app bar.
+- **Exact 3-Stage Verification Machine (from SafeVault)**:
+  - **Stage 1 (Verify Current)**: Authenticates the user's existing 4-digit Master PIN.
+  - **Stage 2 (Enter New)**: Enforces that the new PIN differs from the current PIN.
+  - **Stage 3 (Confirm New)**: Confirms the new PIN entry before committing the change.
+- **Immediate App Lock**: One-tap "Lock App Now" in the Settings dialog to require Master PIN before the next access.
+
+### 3. Complete Investment Details Tracking
 - **6 Core Fields Maintained**:
   - **Investment Name**
   - **Investment Amount**

@@ -98,6 +98,17 @@
                 android:padding="8dp"
                 android:src="@drawable/ic_pdf"
                 app:tint="@color/status_overdue" />
+
+            <ImageView
+                android:id="@+id/btnSettings"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="2dp"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/desc_settings"
+                android:padding="8dp"
+                android:src="@drawable/ic_settings"
+                app:tint="@color/text_primary" />
         </LinearLayout>
 
         <!-- Segmented Tab Navigation -->

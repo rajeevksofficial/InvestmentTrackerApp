@@ -1,6 +1,7 @@
 package com.investmenttracker.app
 
 import android.app.DatePickerDialog
+import android.content.Intent
 import android.content.res.Configuration
 import android.net.Uri
 import android.os.Bundle
@@ -18,6 +19,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.investmenttracker.app.databinding.ActivityMainBinding
 import com.investmenttracker.app.databinding.DialogAddInvestmentBinding
 import com.investmenttracker.app.databinding.DialogImportPreviewBinding
+import com.investmenttracker.app.databinding.DialogSettingsBinding
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Date
@@ -58,6 +60,14 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // Verify authentication
+        if (!SecurityManager.isMasterPinSet(this)) {
+            startActivity(Intent(this, AuthActivity::class.java))
+            finish()
+            return
+        }
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -285,6 +295,10 @@ class MainActivity : AppCompatActivity() {
 
         binding.btnDownloadTemplate.setOnClickListener {
             downloadTemplate()
+        }
+
+        binding.btnSettings.setOnClickListener {
+            showSettingsDialog()
         }
     }
 
@@ -641,6 +655,38 @@ class MainActivity : AppCompatActivity() {
             dialog.dismiss()
             Toast.makeText(this, "Successfully imported $insertedCount investments!", Toast.LENGTH_LONG).show()
             loadData()
+        }
+
+        dialog.show()
+    }
+
+    private fun showSettingsDialog() {
+        val dialogBinding = DialogSettingsBinding.inflate(layoutInflater)
+        val dialog = AlertDialog.Builder(this)
+            .setView(dialogBinding.root)
+            .create()
+
+        dialogBinding.btnCloseSettings.setOnClickListener {
+            dialog.dismiss()
+        }
+
+        dialogBinding.btnDoneSettings.setOnClickListener {
+            dialog.dismiss()
+        }
+
+        dialogBinding.btnChangePassword.setOnClickListener {
+            dialog.dismiss()
+            val intent = Intent(this, ChangePinActivity::class.java)
+            startActivity(intent)
+        }
+
+        dialogBinding.btnLockApp.setOnClickListener {
+            dialog.dismiss()
+            val intent = Intent(this, AuthActivity::class.java).apply {
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            }
+            startActivity(intent)
+            finish()
         }
 
         dialog.show()
