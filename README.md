@@ -11,7 +11,9 @@
 ## 📥 Direct APK Download
 
 You can directly download and install the pre-built application APK:
-- 📱 **[Download InvestTrack-v1.1.apk (v1.1 - Latest)](apk/InvestTrack-v1.1.apk)** *(Size: ~6.02 MB)*
+- 📱 **[Download InvestTrack.apk (Latest)](apk/InvestTrack.apk)** *(Size: ~6.02 MB)*
+- 📱 **[Download InvestmentTracker.apk (Latest)](apk/InvestmentTracker.apk)** *(Size: ~6.02 MB)*
+- 📱 **[Download InvestTrack-v1.1.apk (v1.1)](apk/InvestTrack-v1.1.apk)** *(Size: ~6.02 MB)*
   - **New**: App login password protection with PBKDF2 HMAC-SHA256 (65,536 iterations).
   - **New**: In-settings 3-stage verification flow to change login password (identical to SafeVault).
   - **New**: Instant App Lock feature from Settings.
@@ -113,8 +115,11 @@ You can directly download and install the pre-built application APK:
 ./gradlew assembleDebug
 ```
 
-The compiled APK will be located at:
-`app/build/outputs/apk/debug/app-debug.apk`
+The compiled APK is automatically copied by the build script to:
+- `apk/InvestTrack.apk`
+- `apk/InvestmentTracker.apk`
+- `apk/InvestTrack-v1.1.apk`
+- (and `app/build/outputs/apk/debug/app-debug.apk`)
 
 ---
 

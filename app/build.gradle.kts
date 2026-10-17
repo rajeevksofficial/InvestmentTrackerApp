@@ -47,3 +47,26 @@ dependencies {
     implementation("androidx.cardview:cardview:1.0.0")
     testImplementation(libs.junit)
 }
+
+tasks.register<Copy>("copyApk") {
+    from(layout.buildDirectory.file("outputs/apk/debug/app-debug.apk"))
+    into(rootProject.file("apk"))
+    rename { "InvestTrack.apk" }
+    doLast {
+        copy {
+            from(layout.buildDirectory.file("outputs/apk/debug/app-debug.apk"))
+            into(rootProject.file("apk"))
+            rename { "InvestTrack-v1.1.apk" }
+        }
+        copy {
+            from(layout.buildDirectory.file("outputs/apk/debug/app-debug.apk"))
+            into(rootProject.file("apk"))
+            rename { "InvestmentTracker.apk" }
+        }
+    }
+    dependsOn("assembleDebug")
+}
+
+afterEvaluate {
+    tasks.findByName("assembleDebug")?.finalizedBy("copyApk")
+}
